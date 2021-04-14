@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;netstandard2.0;net5.0;</TargetFrameworks>
+    <TargetFrameworks>net5.0</TargetFrameworks>
     <Description>ASP.NET Core rate limiting middleware</Description>
     <Authors>Stefan Prodan, Cristi Pufu</Authors>
     <AssemblyName>AspNetCoreRateLimit</AssemblyName>
@@ -11,8 +10,8 @@
     <PackageLicense>http://opensource.org/licenses/MIT</PackageLicense>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/stefanprodan/AspNetCoreRateLimit</RepositoryUrl>
-    <LangVersion>8</LangVersion>
-    <Version>3.2.3</Version>
+    <LangVersion>9</LangVersion>
+    <Version>5.0.4</Version>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>../../sgKey.snk</AssemblyOriginatorKeyFile>
     <DelaySign>false</DelaySign>
@@ -21,38 +20,13 @@
     <DebugType>embedded</DebugType>
   </PropertyGroup>
 
-  <ItemGroup Condition="$(TargetFramework) == 'netstandard2.0'">
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="2.2.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-  </ItemGroup>
-  
-  <ItemGroup Condition="$(TargetFramework) == 'netcoreapp3.1'">
-	  <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="5.0.0" />
-	  <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
-	  <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
-	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-  </ItemGroup>
-
-  <ItemGroup Condition="$(TargetFramework) == 'net5.0'">
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-  </ItemGroup>
-
-  <ItemGroup Condition="$(TargetFramework) == 'netcoreapp3.1'">
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
-
-  <ItemGroup Condition="$(TargetFramework) == 'net5.0'">
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <PropertyGroup Condition="'$(APPVEYOR)' == 'true'">
